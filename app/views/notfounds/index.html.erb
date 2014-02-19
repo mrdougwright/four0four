@@ -1,0 +1,27 @@
+<h1>Listing notfounds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Site url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notfounds.each do |notfound| %>
+      <tr>
+        <td><%= notfound.site_url %></td>
+        <td><%= link_to 'Show', notfound %></td>
+        <td><%= link_to 'Edit', edit_notfound_path(notfound) %></td>
+        <td><%= link_to 'Destroy', notfound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notfound', new_notfound_path %>

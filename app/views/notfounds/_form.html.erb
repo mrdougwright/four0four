@@ -1,0 +1,21 @@
+<%= form_for(@notfound) do |f| %>
+  <% if @notfound.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@notfound.errors.count, "error") %> prohibited this notfound from being saved:</h2>
+
+      <ul>
+      <% @notfound.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :site_url %><br>
+    <%= f.text_field :site_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
