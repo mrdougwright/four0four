@@ -34,9 +34,9 @@ end
 
 # added gems
 gem 'rails_12factor', group: :production
-gem "paperclip", "~> 3.0"
 gem 'imgkit'
-# gem 'aws-sdk'
+gem 'paperclip', '~> 3.0'
+gem 'aws-sdk', '~> 1.16.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
