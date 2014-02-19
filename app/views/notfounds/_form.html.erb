@@ -1,3 +1,4 @@
+<!--  need this for form? >>> , url: notfounds_path, html: { multipart: true } -->
 <%= form_for(@notfound) do |f| %>
   <% if @notfound.errors.any? %>
     <div id="error_explanation">
@@ -15,6 +16,7 @@
     <%= f.label :site_url, "http://" %>
     <%= f.text_field :site_url %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

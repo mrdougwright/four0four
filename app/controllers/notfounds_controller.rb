@@ -69,6 +69,6 @@ class NotfoundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notfound_params
-      params.require(:notfound).permit(:site_url)
+      params.require(:notfound).permit(:site_url, :site_404)
     end
 end

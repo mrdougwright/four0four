@@ -4,9 +4,13 @@ class Notfound < ActiveRecord::Base
   before_save :grab_screenshot
 
   def grab_screenshot
-    puts site_url
-    kit = IMGKit.new("http://#{site_url}/foodougbar")
-    img = kit.to_img(:png)
-    kit.to_file(Rails.root + "tmp/temp_screengrabs/testimage.png")
+    img = screenshot
+  end
+
+  private
+
+  def screenshot
+    kit = IMGKit.new("http://#{site_url}/foodougbar").to_png
+    kit.to_file(Rails.root + "tmp/testimage.png")
   end
 end
