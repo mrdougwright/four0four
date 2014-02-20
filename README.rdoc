@@ -4,7 +4,8 @@ This is a simple, rails scaffolded app that accepts a url and return a screensho
 
 It calls the `upload_image` method when a Notfound object (a url for a 404 page) is created (submitted by the user).
 
-```ruby
+
+``` ruby
   def upload_image
     model = @notfound
     html  = "http://#{params[:notfound][:site_url]}/foodougbar"
@@ -13,5 +14,6 @@ It calls the `upload_image` method when a Notfound object (a url for a 404 page)
     model.save
   end
 ```
+
 
 I scrapped this thing together today, but it needs a lot of fine tuning. And it does not yet work on Heroku due to some kind of binary issue with wkhtmltoimage-amd64.
