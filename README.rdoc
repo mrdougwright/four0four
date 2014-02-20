@@ -1,17 +1,17 @@
-__README__
+README
 
 This is a simple, rails scaffolded app that accepts a url and return a screenshot of that url's 404 page. It uses the IMGKit and Paperclip gems, primarily, to achieve this.
 
-It calls the `upload_image` method when a "Notfound" object (a url for a 404 page) is submitted by the user.
+It calls the `upload_image` method when a Notfound object (a url for a 404 page) is created (submitted by the user).
 
 ```ruby
-def upload_image
-  model = @notfound
-  html  = "http://#{params[:notfound][:site_url]}/foodougbar"
-  kit   = IMGKit.new(html)
-  model.site_404 = StringIO.new(kit.to_img(:png))
-  model.save
-end
+  def upload_image
+    model = @notfound
+    html  = "http://#{params[:notfound][:site_url]}/foodougbar"
+    kit   = IMGKit.new(html)
+    model.site_404 = StringIO.new(kit.to_img(:png))
+    model.save
+  end
 ```
 
 I scrapped this thing together today, but it needs a lot of fine tuning. And it does not yet work on Heroku due to some kind of binary issue with wkhtmltoimage-amd64.
