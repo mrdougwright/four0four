@@ -26,6 +26,8 @@ class NotfoundsController < ApplicationController
   def create
     @notfound = Notfound.new(notfound_params)
 
+    upload_image
+
     respond_to do |format|
       if @notfound.save
         format.html { redirect_to @notfound, notice: 'Notfound was successfully created.' }
@@ -70,5 +72,20 @@ class NotfoundsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def notfound_params
       params.require(:notfound).permit(:site_url, :site_404)
+    end
+
+    def upload_image
+      model = @notfound
+
+      html  = "http://#{params[:notfound][:site_url]}/foodougbar"
+      kit   = IMGKit.new(html)
+      img   = kit.to_img(:png)
+      file  = Tempfile.new(["template_#{params[:notfound][:site_url]}", 'png'], 'tmp',
+                            :encoding => 'ascii-8bit')
+      file.write(img)
+      file.flush
+      model.site_404 = file
+      model.save
+      file.unlink
     end
 end

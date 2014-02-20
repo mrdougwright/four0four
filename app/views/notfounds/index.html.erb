@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Site url</th>
+      <th>404 page</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,6 +15,7 @@
     <% @notfounds.each do |notfound| %>
       <tr>
         <td><%= notfound.site_url %></td>
+        <td><%= image_tag notfound.site_404.url(:medium) %><td>
         <td><%= link_to 'Show', notfound %></td>
         <td><%= link_to 'Edit', edit_notfound_path(notfound) %></td>
         <td><%= link_to 'Destroy', notfound, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -29,4 +29,9 @@ Fourof::Application.configure do
 
   # added for Paperclip gem
   Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => "#{Rails.root}/config/s3.yml"
+  }
 end

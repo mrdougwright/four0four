@@ -2,10 +2,8 @@
 
 <p>
   <strong>Site url:</strong>
-  <%= @notfound.site_url %>
-  <%= @notfound.site_404.url %>
-  <%= @notfound.site_404.url(:medium) %>
-
+  <%= @notfound.site_url %><br>
+  <%= image_tag @notfound.site_404.url %>
 </p>
 
 <%= link_to 'Edit', edit_notfound_path(@notfound) %> |

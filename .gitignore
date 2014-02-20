@@ -16,3 +16,5 @@
 /tmp
 
 /.DS_Store
+s3.yml
+public/system/
