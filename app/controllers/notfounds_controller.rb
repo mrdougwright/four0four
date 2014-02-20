@@ -76,7 +76,6 @@ class NotfoundsController < ApplicationController
 
     def upload_image
       model = @notfound
-
       html  = "http://#{params[:notfound][:site_url]}/foodougbar"
       kit   = IMGKit.new(html)
       model.site_404 = StringIO.new(kit.to_img(:png))
