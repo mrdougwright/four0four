@@ -1,4 +1,4 @@
-== README
+__README__
 
 This is a simple, rails scaffolded app that accepts a url and return a screenshot of that url's 404 page. It uses the IMGKit and Paperclip gems, primarily, to achieve this.
 
