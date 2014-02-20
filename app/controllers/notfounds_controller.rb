@@ -79,13 +79,7 @@ class NotfoundsController < ApplicationController
 
       html  = "http://#{params[:notfound][:site_url]}/foodougbar"
       kit   = IMGKit.new(html)
-      img   = kit.to_img(:png)
-      file  = Tempfile.new(["template_#{params[:notfound][:site_url]}", 'png'], 'tmp',
-                            :encoding => 'ascii-8bit')
-      file.write(img)
-      file.flush
-      model.site_404 = file
+      model.site_404 = StringIO.new(kit.to_img(:png))
       model.save
-      file.unlink
     end
 end
